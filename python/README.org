@@ -1,0 +1,14 @@
+* Python scripts
+
+#+begin_src shell
+  # to start
+  [ ! -d venv ] && python -m venv venv; source venv/bin/activate
+  pip install jinja2
+  pip freeze > requirments.txt
+
+  # to continue
+  venv/bin/pip install -r requirements.txt
+  # or
+  venv/bin/activate
+  pip install -r requirements.txt
+#+end_src

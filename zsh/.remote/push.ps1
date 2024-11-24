@@ -1,5 +1,5 @@
-$SRC_DIR="{{src}}"
-$DEST_DIR="aws:{{dest}}"
+$SRC_DIR="/Users/es-kyeongsoo/Projects/Code/scripts/zsh"
+$DEST_DIR="aws:zsh"
 
 if (!(Test-Path $SRC_DIR)) {
     Write-Host "Usage: .remote\push.ps1"

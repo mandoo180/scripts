@@ -1,8 +1,8 @@
 #!/bin/zsh
 
 
-SRC_DIR="{{src}}"
-DEST_DIR="aws:{{dest}}"
+SRC_DIR="/Users/es-kyeongsoo/Projects/Code/scripts/zsh"
+DEST_DIR="aws:zsh"
 
 if [ ! -d "$SRC_DIR" ]; then
   echo 'Usage: .remote/push.sh'
@@ -13,6 +13,6 @@ fi
 echo "Copy from: $SRC_DIR to: $DEST_DIR"
 
 rsync -rvzt -U \
-      --log-file="$HOME/logs/{{dest}}.log" \
+      --log-file=$HOME/logs/Notes.log \
       --progress \
-      "$SRC_DIR/" "$DEST_DIR"
+      "$SRC_DIR" "$DEST_DIR"
