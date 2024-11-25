@@ -1,5 +1,29 @@
 * Python scripts
 
+** Environment variables in use
+
+*** Bash/Zsh
+
+in `.bashrc` or `.zshrc`
+
+#+begin_src shell
+  export K_SCRIPT_HOME="$HOME/scripts"
+  export K_SCRIPT_VENV="$K_SCRIPT_PATH/python/venv"
+#+end_src
+
+*** Powershell
+
+in `$PROFILE`
+
+#+begin_src text
+  $venv:K_SCRIPT_HOME = "$HOME\scripts"
+  $venv:K_SCRIPT_VENV = "$env:K_SCRIPT_HOME\python\venv"
+#+end_src
+
+** Python venv settings
+
+*** Bash/Zsh
+
 #+begin_src shell
   # to start
   [ ! -d venv ] && python -m venv venv; source venv/bin/activate
@@ -10,5 +34,22 @@
   venv/bin/pip install -r requirements.txt
   # or
   venv/bin/activate
+  pip install -r requirements.txt
+#+end_src
+
+*** Powershell
+
+#+begin_src text
+  # to start
+  if (!(Test-Path 'venv')) {
+     python -m venv venv
+     . venv/Scripts/Activate.ps1
+  }
+
+  # to continue
+  pip install jinja2
+  pip freeze > requirements.txt
+  # or
+  venv/Scripts/Activate.ps1
   pip install -r requirements.txt
 #+end_src

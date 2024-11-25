@@ -13,7 +13,7 @@ def init():
         print(f'{name} .remote directory already exists.')
         return
     os.mkdir('./.remote')
-    tmpldir = Path.home().joinpath('Projects', 'Code', 'scripts', 'templates')
+    tmpldir = Path(os.environ['K_SCRIPT_HOME']).joinpath('templates')
     for pull in ['pull.sh', 'pull.ps1']:
         with open(tmpldir.joinpath(pull)) as src:
             with open(p.joinpath(pull), 'w') as out:
@@ -22,7 +22,7 @@ def init():
         with open(tmpldir.joinpath(push)) as src:
             with open(p.joinpath(push), 'w') as out:
                 out.write(Template(src.read()).render(src=Path.cwd(), dest=name))
-    print(f'.remote directory created.')
+    print('.remote directory created.')
 
 if __name__ == '__main__':
     init()
